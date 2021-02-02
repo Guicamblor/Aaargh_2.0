@@ -33,8 +33,8 @@ public class MovimentoPlayer : MonoBehaviour
         float movY = Input.GetAxisRaw("Vertical");
 
         //Colocar o normalize para que quando movimentar em 
-       //diagonal não ser mais rapido que nos vetores
-        direction = new Vector2(movX, movY).normalized;
+        //diagonal não ser mais rapido que nos vetores
+        direction = new Vector2(movX, movY).normalized * 1;
     }
 
     void Movimentorb()
