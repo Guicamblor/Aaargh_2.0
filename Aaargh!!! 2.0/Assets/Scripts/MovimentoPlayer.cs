@@ -6,6 +6,8 @@ public class MovimentoPlayer : MonoBehaviour
 {
     public float moveSpeed;
 
+    public Animator anim;
+
     public Rigidbody2D rb;
 
     Vector2 direction;
@@ -19,6 +21,9 @@ public class MovimentoPlayer : MonoBehaviour
     {
         //Movimentação normal
         VerificaçãodeInputs();
+
+        
+        
     }
 
     void FixedUpdate()
@@ -35,6 +40,10 @@ public class MovimentoPlayer : MonoBehaviour
         //Colocar o normalize para que quando movimentar em 
         //diagonal não ser mais rapido que nos vetores
         direction = new Vector2(movX, movY).normalized * 1;
+
+        anim.SetFloat("Horizontal", direction.x);
+        anim.SetFloat("Vertical", direction.y);
+        anim.SetFloat("Speed", direction.magnitude);
     }
 
     void Movimentorb()
